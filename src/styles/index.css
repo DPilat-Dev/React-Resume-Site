@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
+.hash-span {
+  margin-top: -100px;
+  padding-bottom: 100px;
+  display: block;
+}
+
+.hero {
+  position: relative;
+  min-height: 60vh;
+  min-width: 2000px;
+  width: 100%;
+  left: 50%; /* Center the image horizontally */
+  transform: translateX(-50%); /* Center the image horizontally */
+  display: grid;
+  grid-template-areas: "stack";
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-content {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.animate-textRotate1 {
+  animation: textRotate1 2.4s infinite alternate;
+}
+
+.animate-textRotate2 {
+  animation: textRotate2 2.4s infinite alternate;
+}
+
+@keyframes textRotate1 {
+  0%,
+  40% {
+    transform: translateZ(0) rotateX(0);
+  }
+  60%,
+  100% {
+    transform: translate3d(0, -100%, 0) rotateX(-90deg);
+  }
+}
+
+@keyframes textRotate2 {
+  0%,
+  40% {
+    transform: translate3d(0, 100%, 0) rotateX(-90deg);
+  }
+  60%,
+  100% {
+    transform: translateZ(0) rotateX(0);
+  }
+}
+
+.streaky-glow {
+  position: relative;
+  font-family: inherit;
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    #fff,
+    rgba(255, 200, 0, 0.679),
+    #0ff,
+    #fff
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: glow 4s infinite alternate, streaky-move 4s linear infinite;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2),
+      0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.2),
+      0 0 20px rgba(255, 255, 255, 0.2), 0 0 60px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2),
+      0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.6),
+      0 0 42px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 1);
+  }
+}
