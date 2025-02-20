@@ -9,14 +9,14 @@ const AboutMe = () => {
         {<h2 className={`${styles.sectionText} text-center`}>
             About Me
         </h2>}
-        <div className="flex gap-2">
-          <div className="flex-1 items-center">
+        <div className="flex gap-2 ">
+          <div className="flex-1 items-center ">
             <h3 className={`${styles.h3Text} text-center`}>
               
             </h3>
-            <div className="">
-              {aboutme.details.map((detail) =>(
-                <p className="text-md lg:text-lg xl:text-2xl sm:font-medium pt-2 sm:pl-8">{detail}</p>
+            <div id="test">
+              {aboutme.details.map((detail, index) =>(
+                <p key={index} className="text-md lg:text-lg xl:text-2xl sm:font-medium pt-2 sm:pl-8">{detail}</p>
               ))}
             </div>
           </div>

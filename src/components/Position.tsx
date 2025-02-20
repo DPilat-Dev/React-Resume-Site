@@ -1,3 +1,7 @@
+interface PositionProps {
+  textSize?: string; // Pass text size as a Tailwind class
+}
+
 const produceSpans = (text:any, animation:any) => {
     return text.split("").map((letter:any, index:any) => (
       <span
@@ -10,12 +14,12 @@ const produceSpans = (text:any, animation:any) => {
     ));
   };
   
-  const Position = () => {
+  const Position = ({ textSize = "text-[36px]" }:PositionProps) => {
     return (
-      <div className="relative cursor-default font-medium text-white text-[16px] xs:text-[20px] sm:text-[30px] md:text-[36px] 2xl:text-[66px] leading-[32px] 2xl:leading-[40px] w-full flex justify-center items-center">
-        <div className="absolute inset-0 top-[-30px] sm:top-[-10px] lg:top-0 flex flex-col">
-          <div className="text first absolute left-1 md:left-2 2xl:left-4 flex" aria-label="Fullstack Software Developer">
-            {produceSpans("Fullstack Software Developer", "animate-textRotate1")}
+      <div className={`relative text-white ${textSize} flex `}>
+        <div className="flex flex-col">
+          <div className="text first absolute left-1 md:left-2 2xl:left-4 flex" aria-label="Fullstack Software Engineer">
+            {produceSpans("Fullstack Software Engineer", "animate-textRotate1")}
           </div>
           <div className="text second absolute left-1 md:left-2 2xl:left-4 flex" aria-label="Home Lab Enthusiast">
             {produceSpans("Home Lab Enthusiast", "animate-textRotate2")}
